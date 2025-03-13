@@ -1,26 +1,26 @@
-/* Custom Green Theme for Rabbit Website */
-.custom-green-theme {
-  background-color: #d4edda; /* Light green background */
-  color: #155724; /* Dark green text */
+/* Custom Red Theme for Rabbit Website */
+.custom-red-theme {
+  background-color: #f8e6e6; /* Light red background */
+  color: #7a1c1c; /* Dark red text */
 }
- 
-.custom-green-theme a.nav-link {
-  color: #28a745; /* Bright green for navigation links */
+
+.custom-red-theme a.nav-link {
+  color: #b22222; /* Moderate red for navigation links */
   text-decoration: none;
 }
- 
-.custom-green-theme a.nav-link:hover {
-  color: #155724; /* Darker green on hover */
+
+.custom-red-theme a.nav-link:hover {
+  color: #7a1c1c; /* Darker red on hover */
   text-decoration: underline;
 }
- 
-.custom-green-theme .list-group-item {
-  background-color: #c3e6cb; /* Pale green for list items */
-  color: #155724;
+
+.custom-red-theme .list-group-item {
+  background-color: #f2c4c4; /* Soft red for list items */
+  color: #7a1c1c;
 }
- 
-.custom-green-theme .list-group-item:hover {
-  background-color: #b1dfbb; /* Slightly darker green on hover */
+
+.custom-red-theme .list-group-item:hover {
+  background-color: #e6a8a8; /* Slightly darker red on hover */
 }
 
 body {
@@ -28,6 +28,8 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
+  background-color: #f8e6e6;
+  color: #7a1c1c;
 }
 
 main {
@@ -36,16 +38,17 @@ main {
 
 footer {
   flex-shrink: 0;
-  background-color: #28a745; /* Green footer */
+  background-color: #b22222; /* Dark red footer */
   color: white;
   padding: 10px 0;
-  border-top: 5px solid #155724;
+  border-top: 5px solid #7a1c1c;
 }
 
 /* Carousel Styles */
 .carousel-item {
   border-radius: 25px;
   overflow: hidden;
+  background-color: #f2c4c4;
 }
 
 .carousel-item img {
@@ -59,7 +62,7 @@ footer {
 .carousel-control-next-icon {
   width: 70px;
   height: 70px;
-  background-color: rgba(200, 200, 200, 0.9);
+  background-color: rgba(180, 100, 100, 0.9);
   border-radius: 50%;
   padding: 18px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
@@ -77,13 +80,13 @@ footer {
   margin: 0 12px !important;
   padding: 0 !important;
   background-clip: padding-box !important;
-  border: 2px solid #28a745 !important;
+  border: 2px solid #b22222 !important;
   background-color: white !important;
   opacity: 0.8 !important;
 }
 
 .carousel-indicators button.active {
-  background-color: #155724 !important;
+  background-color: #7a1c1c !important;
   opacity: 1 !important;
 }
 
@@ -96,7 +99,7 @@ footer {
 .carousel-control-prev:hover .carousel-control-prev-icon,
 .carousel-control-next:hover .carousel-control-next-icon {
   transform: scale(1.1);
-  background-color: rgb(180, 180, 180);
+  background-color: rgb(180, 100, 100);
 }
 
 .carousel-indicators [data-bs-target]:hover {
@@ -104,7 +107,7 @@ footer {
 }
 
 .carousel-indicators .active {
-  background-color: #28a745;
+  background-color: #b22222;
   transform: scale(1.2);
   opacity: 1;
 }
