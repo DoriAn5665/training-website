@@ -2,12 +2,12 @@ function Nutrition() {
   return (
     <main className="container px-4 py-4 flex-grow-1">
       <section>
-        <h2 className="h2 text-success mb-4">Харчування зайців</h2>
-        <p>Зайці є травоїдними тваринами. Їх раціон включає:</p>
+        <h2 className="h2 text-success mb-4">Харчування Коней Пржевальського</h2>
+        <p>Харчуються Коні Пржевальського виключно трав'яною рослинністю. Їх раціон включає:</p>
         <ul className="list-group">
-          <li className="list-group-item">Траву, листя і кору дерев.</li>
-          <li className="list-group-item">Овочі, такі як морква та капуста.</li>
-          <li className="list-group-item">Воду, яку вони споживають у великих кількостях.</li>
+          <li className="list-group-item">Жорстка степова трава.</li>
+          <li className="list-group-item">Гілки і листя чагарників.</li>
+          <li className="list-group-item">Регулярно відвідують водопої.</li>
         </ul>
       </section>
     </main>
