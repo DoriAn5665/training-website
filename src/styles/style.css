@@ -1,14 +1,14 @@
 /* Змінні кольорів та значень */
 :root {
-  --color-primary: #28a745;
-  --color-primary-dark: #155724;
-  --color-bg-light: #d4edda;
-  --color-bg-medium: #c3e6cb;
-  --color-bg-hover: #b1dfbb;
+  --color-primary: #8b0000;
+  --color-primary-dark: #5a0000;
+  --color-bg-light: #fae3e3;
+  --color-bg-medium: #e6bfbf;
+  --color-bg-hover: #d99999;
   --spacing-base: 1rem;
   --header-height: 60px;
   --transition-base: 0.2s ease;
-  --shadow-base: 0 4px 8px rgba(40, 167, 69, 0.2);
+  --shadow-base: 0 4px 8px rgba(139, 0, 0, 0.2);
 }
 
 /* Базові стилі */
@@ -129,27 +129,27 @@ footer {
 }
 
 /* Оновлені стилі теми */
-.custom-green-theme {
+.custom-red-theme {
   background-color: var(--color-bg-light);
   color: var(--color-primary-dark);
   min-height: 100vh;
 }
 
-.custom-green-theme .nav-link {
+.custom-red-theme .nav-link {
   color: var(--color-primary);
 }
 
-.custom-green-theme .nav-link:hover {
+.custom-red-theme .nav-link:hover {
   color: var(--color-primary-dark);
 }
 
-.custom-green-theme .list-group-item {
+.custom-red-theme .list-group-item {
   background-color: var(--color-bg-medium);
   color: var(--color-primary-dark);
   transition: background-color var(--transition-base);
 }
 
-.custom-green-theme .list-group-item:hover {
+.custom-red-theme .list-group-item:hover {
   background-color: var(--color-bg-hover);
 }
 
@@ -172,7 +172,7 @@ footer {
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: rgba(200, 200, 200, 0.9);
+  background-color: rgba(160, 50, 50, 0.9);
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   height: 70px;
@@ -182,7 +182,7 @@ footer {
 }
 
 .carousel-control:hover {
-  background: #b4b4b4;
+  background: #a83232;
   transform: scale(1.1);
 }
 
@@ -191,7 +191,7 @@ footer {
 }
 
 .carousel-indicators button {
-  border: 2px solid #28a745 !important;
+  border: 2px solid #8b0000 !important;
   border-radius: 50% !important;
   height: 20px !important;
   margin: 0 12px !important;
@@ -200,7 +200,7 @@ footer {
 }
 
 .carousel-indicators button.active {
-  background-color: #155724;
+  background-color: #5a0000;
   opacity: 1;
 }
 
@@ -215,7 +215,7 @@ footer {
 }
 
 .carousel-indicators .active {
-  background-color: #28a745;
+  background-color: #8b0000;
   opacity: 1;
   transform: scale(1.2);
 }
