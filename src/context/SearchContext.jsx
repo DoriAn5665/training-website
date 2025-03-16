@@ -15,7 +15,7 @@ const PAGES = [
   },
   {
     path: '/morphology',
-    title: 'Зовнішній вигляд Коня Пржевальського',
+    title: 'Зовнішній вигляд Коней Пржевальського',
     component: Morphology
   },
   {
