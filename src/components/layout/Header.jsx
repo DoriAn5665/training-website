@@ -26,7 +26,7 @@ function Header() {
               alt="Коні Пржевальського" 
               className="site-logo rounded-circle me-2"
             />
-            <span className="fs-4">Сайт про Коней Пржевальського</span>
+            <span className="fs-6">Сайт про Коней Пржевальського</span>
           </Link>
         </div>
 
@@ -35,16 +35,16 @@ function Header() {
             Головна
           </Link>
           <Link to="/morphology" className={`nav-link text-white ${location.pathname === '/morphology' ? 'active' : ''}`}>
-            Зовнішній вигляд Коней Пржевальського
+            Зовнішній вигляд Коней 
           </Link>
           <Link to="/nutrition" className={`nav-link text-white ${location.pathname === '/nutrition' ? 'active' : ''}`}>
-            Харчування Коней Пржевальського
+            Харчування Коней 
           </Link>
           <Link to="/population" className={`nav-link text-white ${location.pathname === '/population' ? 'active' : ''}`}>
-            Ареал Коней Пржевальського
+            Ареал Коней 
           </Link>
           <Link to="/photo" className={`nav-link text-white ${location.pathname === '/photo' ? 'active' : ''}`}>
-            Фотографії Коней Пржевальського
+            Фотографії Коней 
           </Link>
         </nav>
 
