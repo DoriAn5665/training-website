@@ -5,7 +5,7 @@ function Nutrition() {
         <h2 className="h2 text-danger mb-4">Харчування Коней Пржевальського</h2>
         <p>Харчуються Коні Пржевальського виключно трав'яною рослинністю. Їх раціон включає:</p>
         <ul className="list-group">
-          <li className="list-group-item">Жорстка степова трава (з'їдає від 25 до 100 кг трави на добу).</li>
+          <li className="list-group-item">Жорстка степова трава.</li>
           <li className="list-group-item">Гілки і листя чагарників.</li>
           <li className="list-group-item">Регулярно відвідують водопої.</li>
         </ul>
