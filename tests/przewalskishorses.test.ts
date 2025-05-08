@@ -119,7 +119,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
             expect(res.body[0]).to.have.property('name', 'Гривастий');
             expect(res.body[0]).to.have.property('gender', 'male');
             expect(res.body[0]).to.have.property('description', 'Чудовий Кінь Пржевальського');
-            expect(res.body).to.have.property('eatenGrass', '2 кг');
+            expect(res.body[0]).to.have.property('eatenGrass', '2 кг');
             expect(res.body[0]).to.have.property('dateAdded');
             expect(new Date(res.body[0].dateAdded)).to.be.instanceOf(Date);
         });
@@ -136,7 +136,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 1.8,
                 gender: 'male',
                 description: 'Коричневий Кінь Пржевальського',
-                eatenGrass: '1 кг',
+                eatenGrass: '2 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
@@ -217,7 +217,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 1.8,
                 gender: 'male',
                 description: 'Початковий опис',
-                eatenGrass: '2 кг',
+                eatenGrass: '3 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
