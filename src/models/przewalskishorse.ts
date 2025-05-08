@@ -9,6 +9,7 @@ interface IPrzewalskishorse {
     gender: 'male' | 'female'; // Стать Коня Пржевальського: 'male' - самець, 'female' - самка
     description?: string; // Опис Коня Пржевальського (необов'язкове поле)
     dateAdded: Date; // Дата додавання запису до бази даних
+    eatenGrass: string; //кількість з'їденої трави за день, кг.
 }
 
 // Схема MongoDB для моделі "Кінь Пржевальського"
@@ -38,6 +39,10 @@ const przewalskishorseSchema = new Schema<IPrzewalskishorse>({
     dateAdded: {
         type: Date,
         default: Date.now, // Значення за замовчуванням - поточна дата і час
+    },
+    eatenGrass: {
+        type: String,
+        required: true, // Поле є обов'язковим
     },
 });
 

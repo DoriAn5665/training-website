@@ -208,6 +208,10 @@ export const swaggerSpec = {
                         type: 'string',
                         description: "Опис Коня Пржевальського  (необов'язкове поле)",
                     },
+                    eatenGrass: {
+                        type: 'string',
+                        eatenGrass: 'Кількість з`їденої трави за день, кг.',
+                    },
                 },
             },
         },

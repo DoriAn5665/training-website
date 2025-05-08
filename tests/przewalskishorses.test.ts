@@ -63,12 +63,13 @@ describe('API вебдодатку сайту про Коней Пржеваль
         it('має створити запис про нового Коня Пржевальського', done => {
             // Тестові дані Коня Пржевальського
             const przewalskishorse = {
-                name: 'Вухань',
+                name: 'Кінь',
                 age: 2,
                 height: 30,
                 weight: 2.5,
                 gender: 'male' as const,
-                description: 'Сірий Кінь Пржевальського',
+                description: 'Гарний Кінь Пржевальського',
+                eatenGrass: '3 кг',
             };
 
             // Виконуємо POST-запит для створення запису про Коня Пржевальського
@@ -88,6 +89,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                     expect(res.body).to.have.property('gender', przewalskishorse.gender);
                     expect(res.body).to.have.property('description', przewalskishorse.description);
                     expect(res.body).to.have.property('dateAdded');
+                    expect(res.body).to.have.property('eatenGrass', przewalskishorse.eatenGrass);
                     expect(new Date(res.body.dateAdded)).to.be.instanceOf(Date);
                     done();
                 });
@@ -99,12 +101,13 @@ describe('API вебдодатку сайту про Коней Пржеваль
         it('має отримати всіх Коней Пржевальського', async () => {
             // Створюємо тестовий запис Коня Пржевальського
             const testPrzewalskishorse = new Przewalskishorse({
-                name: 'Білан',
+                name: 'Гривастий',
                 age: 3,
                 height: 35,
                 weight: 3.2,
                 gender: 'male',
-                description: 'Білий Кінь Пржевальського',
+                description: 'Чудовий Кінь Пржевальського',
+                eatenGrass: '2 кг',
             });
             await testPrzewalskishorse.save();
 
@@ -113,9 +116,10 @@ describe('API вебдодатку сайту про Коней Пржеваль
             expect(res).to.have.status(200);
             expect(res.body).to.be.an('array');
             expect(res.body.length).to.equal(1);
-            expect(res.body[0]).to.have.property('name', 'Білан');
+            expect(res.body[0]).to.have.property('name', 'Гривастий');
             expect(res.body[0]).to.have.property('gender', 'male');
-            expect(res.body[0]).to.have.property('description', 'Білий Кінь Пржевальського');
+            expect(res.body[0]).to.have.property('description', 'Чудовий Кінь Пржевальського');
+            expect(res.body).to.have.property('eatenGrass', '2 кг');
             expect(res.body[0]).to.have.property('dateAdded');
             expect(new Date(res.body[0].dateAdded)).to.be.instanceOf(Date);
         });
@@ -126,12 +130,13 @@ describe('API вебдодатку сайту про Коней Пржеваль
         it('має отримати конкретного Коня Пржевальського за id', async () => {
             // Створюємо запис тестового Коня Пржевальського
             const testPrzewalskishorse = new Przewalskishorse({
-                name: 'Косий',
+                name: 'Коник',
                 age: 1,
                 height: 25,
                 weight: 1.8,
                 gender: 'male',
                 description: 'Коричневий Кінь Пржевальського',
+                eatenGrass: '1 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
@@ -140,12 +145,13 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 .request(app)
                 .get(`/api/przewalskishorses/${String(savedPrzewalskishorse._id)}`);
             expect(res).to.have.status(200);
-            expect(res.body).to.have.property('name', 'Косий');
+            expect(res.body).to.have.property('name', 'Коник');
             expect(res.body).to.have.property('age', 1);
             expect(res.body).to.have.property('height', 25);
             expect(res.body).to.have.property('weight', 1.8);
             expect(res.body).to.have.property('gender', 'male');
             expect(res.body).to.have.property('description', 'Коричневий Кінь Пржевальського');
+            expect(res.body).to.have.property('eatenGrass', '2 кг');
         });
 
         it('має повернути 404 для неіснуючого Коня Пржевальського', async () => {
@@ -168,6 +174,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 1.8,
                 gender: 'male',
                 description: 'Початковий опис',
+                eatenGrass: '3 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
@@ -179,6 +186,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 2.5,
                 gender: 'female',
                 description: 'Оновлений опис',
+                eatenGrass: '4 кг',
             };
 
             // Виконуємо PUT-запит для повного оновлення запису про Коня Пржевальського
@@ -196,6 +204,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
             expect(res.body).to.have.property('gender', 'female');
             expect(res.body).to.have.property('description', 'Оновлений опис');
             expect(res.body).to.have.property('dateAdded');
+            expect(res.body).to.have.property('eatenGrass', '4 кг');
             expect(new Date(res.body.dateAdded)).to.be.instanceOf(Date);
         });
 
@@ -208,6 +217,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 1.8,
                 gender: 'male',
                 description: 'Початковий опис',
+                eatenGrass: '2 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
@@ -218,6 +228,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 // height і weight відсутні
                 gender: 'female',
                 description: 'Оновлений опис',
+                eatenGrass: '3 кг',
             };
 
             // Виконуємо PUT-запит з неповними даними
@@ -236,6 +247,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
             expect(unchangedPrzewalskishorse).to.have.property('name', 'Оригінальний');
             expect(unchangedPrzewalskishorse).to.have.property('height', 25);
             expect(unchangedPrzewalskishorse).to.have.property('weight', 1.8);
+            expect(unchangedPrzewalskishorse).to.have.property('eatenGrass', '3 кг');
         });
     });
 
@@ -250,6 +262,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 1.8,
                 gender: 'male',
                 description: 'Початковий опис',
+                eatenGrass: '2 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
@@ -258,6 +271,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 name: 'Частково оновлений',
                 age: 3,
                 description: 'Оновлений опис',
+                eatenGrass: '3 кг',
             };
 
             // Виконуємо PATCH-запит
@@ -275,6 +289,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
             expect(res.body).to.have.property('gender', 'male');
             expect(res.body).to.have.property('description', 'Оновлений опис');
             expect(res.body).to.have.property('dateAdded');
+            expect(res.body).to.have.property('eatenGrass', '3 кг');
             expect(new Date(res.body.dateAdded)).to.be.instanceOf(Date);
         });
 
@@ -287,6 +302,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 weight: 1.8,
                 gender: 'male',
                 description: 'Початковий опис',
+                eatenGrass: '3 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
@@ -297,6 +313,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
                 // height і weight навмисно відсутні
                 gender: 'female',
                 description: 'Оновлений опис',
+                eatenGrass: '3 кг',
             };
 
             // Виконуємо PATCH-запит
@@ -314,6 +331,7 @@ describe('API вебдодатку сайту про Коней Пржеваль
             expect(res.body).to.have.property('weight', 1.8);
             expect(res.body).to.have.property('gender', 'female');
             expect(res.body).to.have.property('description', 'Оновлений опис');
+            expect(res.body).to.have.property('eatenGrass', '3 кг');
         });
     });
 
@@ -348,12 +366,13 @@ describe('API вебдодатку сайту про Коней Пржеваль
         it('має видалити запис про Коня Пржевальського', async () => {
             // Створюємо тестового Коня Пржевальського
             const testPrzewalskishorse = new Przewalskishorse({
-                name: 'Стрибунець',
+                name: 'Вітерець',
                 age: 2,
                 height: 28,
                 weight: 2.1,
                 gender: 'female',
                 description: 'Чорний Кінь Пржевальського',
+                eatenGrass: '3 кг',
             });
             const savedPrzewalskishorse = await testPrzewalskishorse.save();
 
