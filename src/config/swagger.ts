@@ -4,9 +4,9 @@ export const swaggerSpec = {
     openapi: '3.0.0',
     // Загальна інформація про API
     info: {
-        title: 'API Сайту про Зайців',
+        title: 'API Сайту про Коней Пржевальського',
         version: '1.0.0',
-        description: 'Документація API для Сайту про Зайців',
+        description: 'Документація API для Сайту про Коней Пржевальського',
     },
     // Налаштування серверів для тестування API
     servers: [
@@ -20,18 +20,18 @@ export const swaggerSpec = {
     ],
     // Визначення кінцевих точок (endpoints) REST API та операцій з ними
     paths: {
-        '/api/rabbits': {
-            // GET запит для отримання всіх зайців
+        '/api/przewalskishorse': {
+            // GET запит для отримання всіх Коней Пржевальського
             get: {
-                summary: 'Отримати всіх зайців',
+                summary: 'Отримати всіх Коней Пржевальського',
                 responses: {
                     '200': {
-                        description: 'Список всіх зайців',
+                        description: 'Список всіх Коней Пржевальського',
                         content: {
                             'application/json': {
                                 schema: {
                                     type: 'array',
-                                    items: { $ref: '#/components/schemas/Rabbit' },
+                                    items: { $ref: '#/components/schemas/Przewalskishorse' },
                                 },
                             },
                         },
@@ -39,23 +39,23 @@ export const swaggerSpec = {
                 },
             },
 
-            // POST запит для створення нового зайця
+            // POST запит для створення нового Коня Пржевальського
             post: {
-                summary: 'Створити нового зайця',
+                summary: 'Створити нового Коня Пржевальського',
                 requestBody: {
                     required: true,
                     content: {
                         'application/json': {
-                            schema: { $ref: '#/components/schemas/Rabbit' },
+                            schema: { $ref: '#/components/schemas/Przewalskishorse' },
                         },
                     },
                 },
                 responses: {
                     '201': {
-                        description: "Створений об'єкт зайця",
+                        description: "Створений об'єкт Коня Пржевальського",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Przewalskishorse' },
                             },
                         },
                     },
@@ -63,112 +63,112 @@ export const swaggerSpec = {
             },
         },
 
-        // Операції для конкретного зайця за ID
-        '/api/rabbits/{id}': {
-            // GET запит для отримання зайця за ID
+        // Операції для конкретного Коня Пржевальського за ID
+        '/api/przewalskishorses/{id}': {
+            // GET запит для отримання Коня Пржевальського за ID
             get: {
-                summary: 'Отримати зайця за ID',
+                summary: 'Отримати Коня Пржевальського за ID',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID Коня Пржевальського',
                     },
                 ],
                 responses: {
                     '200': {
-                        description: "Об'єкт зайця",
+                        description: "Об'єкт Коня Пржевальського",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Przewalskishorse' },
                             },
                         },
                     },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Коня Пржевальського не знайдено' },
                 },
             },
 
-            // PUT запит для повного оновлення зайця за ID
+            // PUT запит для повного оновлення Коня Пржевальського за ID
             put: {
-                summary: 'Повністю оновити зайця',
+                summary: 'Повністю оновити Коня Пржевальського',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID Коня Пржевальського',
                     },
                 ],
                 requestBody: {
                     required: true,
                     content: {
                         'application/json': {
-                            schema: { $ref: '#/components/schemas/Rabbit' },
+                            schema: { $ref: '#/components/schemas/Przewalskishorse' },
                         },
                     },
                 },
                 responses: {
                     '200': {
-                        description: "Оновлений об'єкт зайця",
+                        description: "Оновлений об'єкт Коня Пржевальського",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Przewalskishorse' },
                             },
                         },
                     },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Коня Пржевальського не знайдено' },
                 },
             },
-            // PATCH запит для часткового оновлення зайця за ID
+            // PATCH запит для часткового оновлення Коня Пржевальського за ID
             patch: {
-                summary: 'Частково оновити зайця',
+                summary: 'Частково оновити Коня Пржевальського',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID Коня Пржевальського',
                     },
                 ],
                 requestBody: {
                     required: true,
                     content: {
                         'application/json': {
-                            schema: { $ref: '#/components/schemas/Rabbit' },
+                            schema: { $ref: '#/components/schemas/Przewalskishorse' },
                         },
                     },
                 },
                 responses: {
                     '200': {
-                        description: "Оновлений об'єкт зайця",
+                        description: "Оновлений об'єкт Коня Пржевальського",
                         content: {
                             'application/json': {
-                                schema: { $ref: '#/components/schemas/Rabbit' },
+                                schema: { $ref: '#/components/schemas/Przewalskishorse' },
                             },
                         },
                     },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Коня Пржевальського не знайдено' },
                 },
             },
-            // DELETE запит для видалення даних про зайця за ID
+            // DELETE запит для видалення даних про Коня Пржевальського за ID
             delete: {
-                summary: 'Видалити дані про зайця',
+                summary: 'Видалити дані про Коня Пржевальського',
                 parameters: [
                     {
                         in: 'path',
                         name: 'id',
                         required: true,
                         schema: { type: 'string' },
-                        description: 'ID зайця',
+                        description: 'ID Коня Пржевальського',
                     },
                 ],
                 responses: {
                     '200': { description: 'Повідомлення про успішне видалення' },
-                    '404': { description: 'Зайця не знайдено' },
+                    '404': { description: 'Коня Пржевальського не знайдено' },
                 },
             },
         },
@@ -179,34 +179,34 @@ export const swaggerSpec = {
         // Схеми даних
         schemas: {
             // Схема об'єкта Заєць
-            Rabbit: {
+            Przewalskishorse: {
                 type: 'object',
                 required: ['name', 'age', 'height', 'weight', 'gender'],
                 properties: {
                     name: {
                         type: 'string',
-                        description: "Ім'я зайця",
+                        description: "Ім'я Коня Пржевальського",
                     },
                     age: {
                         type: 'number',
-                        description: 'Вік зайця у роках',
+                        description: 'Вік Коня Пржевальського у роках',
                     },
                     height: {
                         type: 'number',
-                        description: 'Висота зайця в сантиметрах',
+                        description: 'Висота Коня Пржевальського в сантиметрах',
                     },
                     weight: {
                         type: 'number',
-                        description: 'Вага зайця в кілограмах',
+                        description: 'Вага Коня Пржевальського в кілограмах',
                     },
                     gender: {
                         type: 'string',
                         enum: ['male', 'female'],
-                        description: 'Стать зайця',
+                        description: 'Стать Коня Пржевальського',
                     },
                     description: {
                         type: 'string',
-                        description: "Опис зайця (необов'язкове поле)",
+                        description: "Опис Коня Пржевальського  (необов'язкове поле)",
                     },
                 },
             },
