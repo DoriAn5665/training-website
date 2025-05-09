@@ -20,7 +20,7 @@ export const swaggerSpec = {
     ],
     // Визначення кінцевих точок (endpoints) REST API та операцій з ними
     paths: {
-        '/api/przewalskishorse': {
+        '/api/przewalskishorses': {
             // GET запит для отримання всіх Коней Пржевальського
             get: {
                 summary: 'Отримати всіх Коней Пржевальського',
