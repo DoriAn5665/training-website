@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { API_BASE_URL } from '../config/api';
 import { Toast } from 'bootstrap';
 
-// Компонент для управління зайцями, які перебувають на реабілітації, через API
+// Компонент для управління Кіньми Пржевальського , які перебувають на реабілітації, через API
 function Rehabilitation() {  // Стан для зберігання даних та стану інтерфейсу
   const [rabbits, setRabbits] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -13,13 +13,13 @@ function Rehabilitation() {  // Стан для зберігання даних 
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false); // Стан для модального вікна видалення
-  const [rabbitToDelete, setRabbitToDelete] = useState(null); // Ідентифікатор зайця для видалення
+  const [rabbitToDelete, setRabbitToDelete] = useState(null); // Ідентифікатор Коней Пржевальського  для видалення
   const [currentRabbit, setCurrentRabbit] = useState(null);
   const [toastMessage, setToastMessage] = useState({ text: '', type: 'success' });
   
   // Посилання до елемента спливаючих сповіщень toast
   const toastRef = useRef(null);
-  // Стан форми для додавання/редагування зайців
+  // Стан форми для додавання/редагування Коней Пржевальського 
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -30,9 +30,9 @@ function Rehabilitation() {  // Стан для зберігання даних 
     eatenGrass: ''
   });
 
-  // При рендерингу компонента, отримуємо всіх зайців
+  // При рендерингу компонента, отримуємо всіх Коней Пржевальського 
   useEffect(() => {
-    document.title = 'Реабілітація зайців - Сайт про зайців';
+    document.title = 'Реабілітація Коней Пржевальського  - Сайт про Коней Пржевальського ';
     fetchRabbits();
   }, []);
 
@@ -44,7 +44,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
     }
   }, [toastMessage]);
   
-  // Отримуємо всіх зайців з API
+  // Отримуємо всіх Коней Пржевальського  з API
   const fetchRabbits = async () => {
     try {
       setLoading(true);
@@ -54,7 +54,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
 
     } catch (err) {
       setError(`Помилка завантаження даних: ${err.message}`);
-      console.error('Помилка при отриманні даних про зайців:', err);
+      console.error('Помилка при отриманні даних про Коней Пржевальського :', err);
       setRabbits([]);
 
     } finally {
@@ -78,7 +78,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
     });
   };
 
-  // Відкриваємо модальне вікно для додавання нового зайця
+  // Відкриваємо модальне вікно для додавання нового Коня Пржевальського 
   const handleShowAddModal = () => {
     setFormData({
       name: '',
@@ -92,7 +92,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
     setShowAddModal(true);
   };
 
-  // Відкриваємо модальне вікно для редагування зайця
+  // Відкриваємо модальне вікно для редагування Коня Пржевальського 
   const handleShowEditModal = (rabbit) => {
     setCurrentRabbit(rabbit);
     setFormData({
@@ -107,7 +107,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
     setShowEditModal(true);
   };
 
-  // Додаємо нового зайця
+  // Додаємо нового Коня Пржевальського 
   const handleAddRabbit = async (e) => {
     e.preventDefault();
     
@@ -117,20 +117,20 @@ function Rehabilitation() {  // Стан для зберігання даних 
       const newRabbit = response.data;
       setRabbits([...rabbits, newRabbit]);
       setShowAddModal(false);
-      setToastMessage({ text: `Зайця "${newRabbit.name}" успішно додано!`, type: 'success' });
+      setToastMessage({ text: `Коня Пржевальського  "${newRabbit.name}" успішно додано!`, type: 'success' });
 
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message;
       setError(`Помилка при створенні: ${errorMessage}`);
       setToastMessage({ text: `Помилка при створенні: ${errorMessage}`, type: 'danger' });
-      console.error('Помилка при додаванні зайця:', err);
+      console.error('Помилка при додаванні Коня Пржевальського :', err);
 
     } finally {
       setLoading(false);
     }
   };
 
-  // Оновлюємо існуючого зайця
+  // Оновлюємо існуючого Коня Пржевальського 
   const handleUpdateRabbit = async (e) => {
     e.preventDefault();
     
@@ -142,13 +142,13 @@ function Rehabilitation() {  // Стан для зберігання даних 
         rabbit._id === currentRabbit._id ? updatedRabbit : rabbit
       ));
       setShowEditModal(false);
-      setToastMessage({ text: `Дані про зайця "${updatedRabbit.name}" оновлено!`, type: 'success' });
+      setToastMessage({ text: `Дані про Коня Пржевальського  "${updatedRabbit.name}" оновлено!`, type: 'success' });
 
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message;
       setError(`Помилка при оновленні: ${errorMessage}`);
       setToastMessage({ text: `Помилка при оновленні: ${errorMessage}`, type: 'danger' });
-      console.error('Помилка при оновленні зайця:', err);
+      console.error('Помилка при оновленні Коня Пржевальського :', err);
       
     } finally {
       setLoading(false);
@@ -161,21 +161,21 @@ function Rehabilitation() {  // Стан для зберігання даних 
     setShowDeleteModal(true);
   };
 
-  // Видаляємо зайця
+  // Видаляємо Коня Пржевальського 
   const handleDeleteRabbit = async () => {
     try {
       setLoading(true);
       await axios.delete(`${API_BASE_URL}/rabbits/${rabbitToDelete._id}`);
       setRabbits(rabbits.filter(rabbit => rabbit._id !== rabbitToDelete._id));
-      setToastMessage({ text: `Зайця "${rabbitToDelete.name}" успішно видалено!`, type: 'success' });
+      setToastMessage({ text: `Коня Пржевальського  "${rabbitToDelete.name}" успішно видалено!`, type: 'success' });
       setShowDeleteModal(false); // Закриваємо модальне вікно
-      setRabbitToDelete(null); // Очищаємо дані зайця для видалення
+      setRabbitToDelete(null); // Очищаємо дані Коня Пржевальського  для видалення
 
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message;
       setError(`Помилка при видаленні: ${errorMessage}`);
       setToastMessage({ text: `Помилка при видаленні: ${errorMessage}`, type: 'danger' });
-      console.error('Помилка при видаленні зайця:', err);
+      console.error('Помилка при видаленні Коня Пржевальського :', err);
 
     } finally {
       setLoading(false);
@@ -191,13 +191,13 @@ function Rehabilitation() {  // Стан для зберігання даних 
   return (
     <main className="container px-4 py-4">
       <header className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className="h2 text-success">Реабілітація зайців</h1>
+        <h1 className="h2 text-success">Реабілітація Коней Пржевальського </h1>
         <button 
           className="btn btn-success" 
           onClick={handleShowAddModal}
           disabled={loading}
         >
-          Додати зайця
+          Додати Коня Пржевальського 
         </button>
       </header>
 
@@ -232,19 +232,19 @@ function Rehabilitation() {  // Стан для зберігання даних 
         </div>
       </div>
 
-      {/* Таблиця зайців */}
+      {/* Таблиця Коней Пржевальського  */}
       {loading && !error && (
         <div className="text-center my-5">
           <div className="spinner-border text-success" role="status">
             <span className="visually-hidden">Завантаження...</span>
           </div>
-          <p className="mt-2">Завантаження записів зайців...</p>
+          <p className="mt-2">Завантаження записів Коней Пржевальського ...</p>
         </div>
       )}
       
       {!loading && rabbits.length === 0 && (
         <section className="alert alert-info">
-          Немає доступних записів про зайців у реабілітації. Додайте першого зайця!
+          Немає доступних записів про Коней Пржевальського  у реабілітації. Додайте першого Коня Пржевальського !
         </section>
       )}
       
@@ -300,7 +300,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
         </section>
       )}
 
-      {/* Модальне вікно для додавання нового зайця */}
+      {/* Модальне вікно для додавання нового Коня Пржевальського  */}
       <div 
         className={`modal fade ${showAddModal ? 'show' : ''}`} 
         id="addRabbitModal" 
@@ -312,7 +312,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <header className="modal-header">
-              <h2 className="modal-title h5" id="addRabbitModalLabel">Додати нового зайця</h2>
+              <h2 className="modal-title h5" id="addRabbitModalLabel">Додати нового Коня Пржевальського </h2>
               <button type="button" className="btn-close" onClick={() => setShowAddModal(false)} aria-label="Закрити"></button>
             </header>
             <div className="modal-body">
@@ -440,7 +440,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
                         <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                         Зачекайте...
                       </>
-                    ) : 'Додати зайця'}
+                    ) : 'Додати Коня Пржевальського '}
                   </button>
                 </footer>
               </form>
@@ -455,7 +455,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
              onClick={() => setShowAddModal(false)}></div>
       )}
 
-      {/* Модальне вікно для редагування існуючого зайця */}
+      {/* Модальне вікно для редагування існуючого Коня Пржевальського  */}
       <div 
         className={`modal fade ${showEditModal ? 'show' : ''}`} 
         id="editRabbitModal" 
@@ -467,7 +467,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <header className="modal-header">
-              <h2 className="modal-title h5" id="editRabbitModalLabel">Редагувати зайця</h2>
+              <h2 className="modal-title h5" id="editRabbitModalLabel">Редагувати Коня Пржевальського </h2>
               <button type="button" className="btn-close" onClick={() => setShowEditModal(false)} aria-label="Закрити"></button>
             </header>
             <div className="modal-body">
@@ -609,7 +609,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
              onClick={() => setShowEditModal(false)}></div>
       )}
 
-      {/* Модальне вікно для підтвердження видалення зайця */}
+      {/* Модальне вікно для підтвердження видалення Коня Пржевальського  */}
       <div 
         className={`modal fade ${showDeleteModal ? 'show' : ''}`} 
         id="deleteRabbitModal" 
@@ -626,7 +626,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
             </header>
             <div className="modal-body">
               {rabbitToDelete && (
-                <p>Ви впевнені, що хочете видалити зайця <strong>{rabbitToDelete.name}</strong>?</p>
+                <p>Ви впевнені, що хочете видалити Коня Пржевальського  <strong>{rabbitToDelete.name}</strong>?</p>
               )}
             </div>
             <footer className="modal-footer">              
