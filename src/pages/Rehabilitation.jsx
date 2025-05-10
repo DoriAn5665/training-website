@@ -15,7 +15,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
   const [showDeleteModal, setShowDeleteModal] = useState(false); // Стан для модального вікна видалення
   const [przewalskishorseToDelete, setPrzewalskishorseToDelete] = useState(null); // Ідентифікатор Коней Пржевальського  для видалення
   const [currentPrzewalskishorse, setCurrentPrzewalskishorse] = useState(null);
-  const [toastMessage, setToastMessage] = useState({ text: '', type: 'success' });
+  const [toastMessage, setToastMessage] = useState({ text: '', type: 'danger' });
   
   // Посилання до елемента спливаючих сповіщень toast
   const toastRef = useRef(null);
@@ -117,7 +117,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
       const newPrzewalskishorse = response.data;
       setPrzewalskishorses([...przewalskishorses, newPrzewalskishorse]);
       setShowAddModal(false);
-      setToastMessage({ text: `Коня Пржевальського  "${newPrzewalskishorse.name}" успішно додано!`, type: 'success' });
+      setToastMessage({ text: `Коня Пржевальського  "${newPrzewalskishorse.name}" успішно додано!`, type: 'danger' });
 
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message;
@@ -142,7 +142,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
         przewalskishorse._id === currentPrzewalskishorse._id ? updatedPrzewalskishorse : przewalskishorse
       ));
       setShowEditModal(false);
-      setToastMessage({ text: `Дані про Коня Пржевальського  "${updatedPrzewalskishorse.name}" оновлено!`, type: 'success' });
+      setToastMessage({ text: `Дані про Коня Пржевальського  "${updatedPrzewalskishorse.name}" оновлено!`, type: 'danger' });
 
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message;
@@ -167,7 +167,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
       setLoading(true);
       await axios.delete(`${API_BASE_URL}/przewalskishorses/${przewalskishorseToDelete._id}`);
       setPrzewalskishorses(przewalskishorses.filter(przewalskishorse => przewalskishorse._id !== przewalskishorseToDelete._id));
-      setToastMessage({ text: `Коня Пржевальського  "${przewalskishorseToDelete.name}" успішно видалено!`, type: 'success' });
+      setToastMessage({ text: `Коня Пржевальського  "${przewalskishorseToDelete.name}" успішно видалено!`, type: 'danger' });
       setShowDeleteModal(false); // Закриваємо модальне вікно
       setPrzewalskishorseToDelete(null); // Очищаємо дані Коня Пржевальського  для видалення
 
@@ -191,9 +191,9 @@ function Rehabilitation() {  // Стан для зберігання даних 
   return (
     <main className="container px-4 py-4">
       <header className="d-flex justify-content-between align-items-center mb-4">
-        <h1 className="h2 text-success">Реабілітація Коней Пржевальського </h1>
+        <h1 className="h2 text-danger">Реабілітація Коней Пржевальського </h1>
         <button 
-          className="btn btn-success" 
+          className="btn btn-danger" 
           onClick={handleShowAddModal}
           disabled={loading}
         >
@@ -235,7 +235,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
       {/* Таблиця Коней Пржевальського  */}
       {loading && !error && (
         <div className="text-center my-5">
-          <div className="spinner-border text-success" role="status">
+          <div className="spinner-border text-danger" role="status">
             <span className="visually-hidden">Завантаження...</span>
           </div>
           <p className="mt-2">Завантаження записів Коней Пржевальського ...</p>
@@ -434,7 +434,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
                   <button type="button" className="btn btn-secondary me-2" onClick={() => setShowAddModal(false)}>
                     Скасувати
                   </button>
-                  <button type="submit" className="btn btn-success" disabled={loading}>
+                  <button type="submit" className="btn btn-danger" disabled={loading}>
                     {loading ? (
                       <>
                         <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
