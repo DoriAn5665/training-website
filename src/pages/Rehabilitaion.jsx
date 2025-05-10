@@ -26,7 +26,8 @@ function Rehabilitation() {  // Стан для зберігання даних 
     height: '',
     weight: '',
     gender: 'male',
-    description: ''
+    description: '',
+    eatenGrass: ''
   });
 
   // При рендерингу компонента, отримуємо всіх зайців
@@ -85,7 +86,8 @@ function Rehabilitation() {  // Стан для зберігання даних 
       height: '',
       weight: '',
       gender: 'male',
-      description: ''
+      description: '',
+      eatenGrass: ''
     });
     setShowAddModal(true);
   };
@@ -99,7 +101,8 @@ function Rehabilitation() {  // Стан для зберігання даних 
       height: rabbit.height,
       weight: rabbit.weight,
       gender: rabbit.gender,
-      description: rabbit.description || ''
+      description: rabbit.description || '',
+      eatenGrass: rabbit.eatenGrass
     });
     setShowEditModal(true);
   };
@@ -256,6 +259,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
                 <th>Вага (кг)</th>
                 <th>Стать</th>
                 <th>Опис</th>
+                <th>кількість трави (кг)</th>
                 <th>Дата додавання</th>
                 <th>Дії</th>
               </tr>
@@ -269,6 +273,7 @@ function Rehabilitation() {  // Стан для зберігання даних 
                   <td>{rabbit.weight}</td>
                   <td>{rabbit.gender === 'male' ? 'Самець' : 'Самиця'}</td>
                   <td>{rabbit.description}</td>
+                  <td>{rabbit.eatenGrass}</td>
                   <td>{rabbit.dateAdded ? formatDate(rabbit.dateAdded) : 'Н/Д'}</td>
                   <td>
                     <button
@@ -409,6 +414,21 @@ function Rehabilitation() {  // Стан для зберігання даних 
                       ></textarea>
                     </div>
                   </div>
+
+                  <div className="row mb-3">
+                    <label htmlFor="huntingAltitude" className="col-sm-3 col-form-label">Кількість трави (кг)</label>
+                    <div className="col-sm-9">
+                      <input 
+                        type="string" 
+                        className="form-control" 
+                        id="eatenGrass" 
+                        name="eatenGrass" 
+                        value={formData.eatenGrass} 
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
+                  </div>
                 </fieldset>
                 <footer className="d-flex justify-content-end">
                   <button type="button" className="btn btn-secondary me-2" onClick={() => setShowAddModal(false)}>
@@ -547,6 +567,20 @@ function Rehabilitation() {  // Стан для зберігання даних 
                         onChange={handleInputChange}
                         rows={3}
                       ></textarea>
+                    </div>
+                  </div>
+                  <div className="row mb-3">
+                    <label htmlFor="huntingAltitude" className="col-sm-3 col-form-label">Кількість трави (кг)</label>
+                    <div className="col-sm-9">
+                      <input 
+                        type="string" 
+                        className="form-control" 
+                        id="eatenGrass" 
+                        name="eatenGrass" 
+                        value={formData.eatenGrass} 
+                        onChange={handleInputChange}
+                        required
+                      />
                     </div>
                   </div>
                 </fieldset>                
